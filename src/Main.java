@@ -1,7 +1,10 @@
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        NumberFormat formatter = new DecimalFormat("#0.00");
         Scanner s = new Scanner(System.in); //5-12 declares all the variables that are going to be used to either print or do math
         int tip;
         int people;
@@ -26,14 +29,10 @@ public class Main {
         tipPerPerson = Math.round((totalTipAmount / people) * 100.00) / 100.00;
         totalPerPerson = Math.round((billAndTip / people) * 100.00) / 100.00;
 
-        System.out.println("The total tip amount is $" + totalTipAmount);
-        System.out.println("The bill including tip is $" + billAndTip);
-        System.out.println("The tip per person is $" + tipPerPerson);
-        System.out.println("The total per person is $" + totalPerPerson);
-
-
-
-
-
+        System.out.println();
+        System.out.println("The total tip amount is $" + formatter.format(totalTipAmount));
+        System.out.println("The bill including tip is $" + formatter.format(billAndTip));
+        System.out.println("The tip per person is $" + formatter.format(tipPerPerson));
+        System.out.println("The total per person is $" + formatter.format(totalPerPerson));
     }
 }
